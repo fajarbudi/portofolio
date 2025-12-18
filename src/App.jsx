@@ -74,7 +74,7 @@ const EXPERIENCE = [
   },
   {
     role: "Mobile Developer",
-    org: "Project / Organization",
+    org: "PT Anauri",
     period: "2023 — 2024",
     text: "Membangun aplikasi Flutter multi-role, optimasi performa, caching, dan pola offline-first.",
   },
@@ -124,19 +124,14 @@ const LANGUAGES = [
 
 const EDUCATION_CERTS = [
   {
-    title: "Bachelor / Diploma (opsional)",
-    subtitle: "Jurusan / Kampus",
-    meta: "2016",
+    title: "Software Developer Certificate",
+    subtitle: "Hacker Rank",
+    meta: "2025",
   },
   {
-    title: "Laravel / Backend Certificate",
-    subtitle: "Platform / Provider",
-    meta: "2022",
-  },
-  {
-    title: "Flutter / Mobile Certificate",
-    subtitle: "Platform / Provider",
-    meta: "2023",
+    title: "Frontend Developer Certificate",
+    subtitle: "Hacker Rank",
+    meta: "2025",
   },
 ];
 
