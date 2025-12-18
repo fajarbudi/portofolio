@@ -90,6 +90,7 @@ const SECTIONS = [
   { id: "home", label: "Home", icon: "home" },
   { id: "summary", label: "Summary", icon: "summary" },
   { id: "experience", label: "Experience", icon: "bag" },
+  { id: "projects", label: "Projects", icon: "summary" },
   { id: "skills", label: "Skills", icon: "bolt" },
   { id: "links", label: "Links", icon: "link" },
 ];
