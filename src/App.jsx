@@ -23,29 +23,29 @@ const TECH_CHIPS = ["Laravel", "Flutter", "React.js", "Next.js"];
 
 const PROJECTS = [
   {
-    title: "Monitoring & Evaluation System",
-    desc: "Dashboard eksekutif, pelaporan berkala, dokumentasi realisasi, dan tracking kendala.",
-    image: "https://picsum.photos/seed/apex-project-01/1200/900",
-    href: "#",
+    title: "Prakiraan Waktu Banjir (Flood Routing)",
+    desc: "Peta interaktif untuk memilih titik hulu–hilir, menampilkan profil lokasi (koordinat, elevasi, desa/kecamatan), serta menghitung estimasi jarak dan waktu tempuh gelombang banjir menuju hilir.",
+    image: "/project/floodRouting.png",
+    href: "https://sih3.bbwsserayuopak.id/info/floodrouting",
   },
   {
     title: "Mobile Public Service",
-    desc: "Aplikasi Flutter untuk layanan, notifikasi, tracking proses, dan offline-friendly.",
-    image: "https://picsum.photos/seed/apex-project-02/1200/900",
-    href: "#",
+    desc: "Aplikasi Flutter untuk layanan, notifikasi, tracking proses.",
+    image: "/project/air.png",
+    href: "#projects",
   },
-  {
-    title: "Company Profile + CMS",
-    desc: "Website modern, SEO-ready, performa tinggi, dan panel admin konten.",
-    image: "https://picsum.photos/seed/apex-project-03/1200/900",
-    href: "#",
-  },
-  {
-    title: "Admin Dashboard UI",
-    desc: "Komponen reusable, data table, chart, dan layout konsisten untuk aplikasi internal.",
-    image: "https://picsum.photos/seed/apex-project-04/1200/900",
-    href: "#",
-  },
+  // {
+  //   title: "Company Profile + CMS",
+  //   desc: "Website modern, SEO-ready, performa tinggi, dan panel admin konten.",
+  //   image: "https://picsum.photos/seed/apex-project-03/1200/900",
+  //   href: "#",
+  // },
+  // {
+  //   title: "Admin Dashboard UI",
+  //   desc: "Komponen reusable, data table, chart, dan layout konsisten untuk aplikasi internal.",
+  //   image: "https://picsum.photos/seed/apex-project-04/1200/900",
+  //   href: "#",
+  // },
 ];
 
 const EXPERIENCE = [
@@ -733,6 +733,7 @@ function ProjectCardWide({ title, desc, image, href }) {
   return (
     <a
       href={href}
+      target="_blank"
       className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 transition"
     >
       <div className="relative h-52 overflow-hidden">
