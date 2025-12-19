@@ -305,27 +305,33 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8 grid gap-3 text-sm text-white/85 md:grid-cols-2 max-w-130">
-                  <a href="mailto: fajarbudira@gmail.com" target="_blank">
+                  {/* <a href="mailto: fajarbudira@gmail.com" target="_blank">
                     <InfoRow icon="mail" text={PROFILE.email} />
-                  </a>
+                  </a> */}
                   <a
                     href={`https://wa.me/${PROFILE.phone}text=urlencodedtext`}
                     target="_blank"
                   >
-                    <InfoRow icon="fa fa-whatsapp" text={PROFILE.phone} />
+                    <InfoRow
+                      icon="fa fa-whatsapp text-yellow-400/90"
+                      text={PROFILE.phone}
+                    />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/fajar-budi-770227266/"
                     target="_blank"
                   >
-                    <InfoRow icon="fa fa-linkedin" text="Fajar budi" />
+                    <InfoRow
+                      icon="fa fa-linkedin text-yellow-400/90"
+                      text="Fajar budi"
+                    />
                   </a>
                   <a
                     href="https://maps.app.goo.gl/hGYXTUJGrHM6PQpF9"
                     target="_blank"
                   >
                     <InfoRow
-                      icon="fa fa-compass text-md"
+                      icon="fa fa-compass text-yellow-400/90"
                       text={PROFILE.location}
                     />
                   </a>
