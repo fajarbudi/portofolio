@@ -6,7 +6,7 @@ const PROFILE = {
   name: "Fajar Budi Raharjo",
   desc: "Saya mengembangkan sistem dan aplikasi web & mobile end-to-end untuk kebutuhan bisnis: perancangan UI, implementasi frontend, backend service & API, serta optimalisasi performa dan keamanan aplikasi.",
   email: "fajarbudira@gmail.com",
-  phone: "+62 89605877717",
+  phone: "089605877717",
   location: "Yogyakarta, ID",
   cvUrl: "#",
   social: [
@@ -53,19 +53,34 @@ const EXPERIENCE = [
     role: "Full-Stack Developer",
     org: "PT Anauri",
     period: "2023 — Now",
-    text: "Membangun sistem end-to-end: backend Laravel, dashboard React/Next, serta integrasi mobile Flutter.",
+    text: "Membangun dan mengembangkan sistem aplikasi dari awal sampai siap digunakan, mulai dari pengelolaan data, tampilan dashboard, hingga terhubung dengan aplikasi mobile.",
+    bullets: [
+      "Menyusun fitur-fitur utama sesuai kebutuhan pengguna dan memastikan alurnya mudah dipakai.",
+      "Menghubungkan aplikasi web dan mobile agar data tercatat rapi dan sinkron.",
+      "Menjaga aplikasi tetap cepat, stabil, dan mudah dikembangkan untuk kebutuhan berikutnya.",
+    ],
   },
   {
     role: "Mobile Developer",
     org: "PT Anauri",
     period: "2023 — 2024",
-    text: "Membangun aplikasi Flutter multi-role, optimasi performa, caching, dan pola offline-first.",
+    text: "Mengembangkan aplikasi mobile untuk kebutuhan operasional, dengan fokus pada kenyamanan pengguna dan kestabilan aplikasi.",
+    bullets: [
+      "Membuat aplikasi yang bisa digunakan oleh beberapa jenis pengguna (misalnya admin & petugas).",
+      "Mengoptimalkan aplikasi agar tetap lancar, termasuk saat koneksi internet kurang stabil.",
+      "Melakukan perbaikan dan penyempurnaan berdasarkan masukan pengguna.",
+    ],
   },
   {
     role: "Front-End",
     org: "Freelance",
     period: "2022 — 2023",
-    text: "Membangun aplikasi Flutter multi-role, optimasi performa, caching, dan pola offline-first.",
+    text: "Membantu membuat tampilan website agar lebih menarik, rapi, dan mudah dipahami pengguna.",
+    bullets: [
+      "Membuat halaman website yang responsif (nyaman dibuka di HP maupun laptop).",
+      "Menyusun tampilan sesuai kebutuhan klien dan memastikan informasinya mudah dibaca.",
+      "Menyesuaikan dan memperbarui tampilan berdasarkan revisi dan kebutuhan baru.",
+    ],
   },
 ];
 
@@ -309,7 +324,7 @@ export default function Portfolio() {
                     <InfoRow icon="mail" text={PROFILE.email} />
                   </a> */}
                   <a
-                    href={`https://wa.me/${PROFILE.phone}text=urlencodedtext`}
+                    href={`https://wa.me/6285640742885text=urlencodedtext`}
                     target="_blank"
                   >
                     <InfoRow
@@ -438,14 +453,13 @@ export default function Portfolio() {
 
                   {/* optional bullets: bikin lebih hidup */}
                   <ul className="mt-4 space-y-2 text-sm text-white/70">
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />
-                      Membangun modul, API, dan integrasi lintas platform.
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />
-                      Fokus pada struktur, performa, dan maintainability.
-                    </li>
+                    {e.bullets &&
+                      e.bullets.map((b) => (
+                        <li className="flex gap-3">
+                          <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />
+                          {b}
+                        </li>
+                      ))}
                   </ul>
                 </div>
               ))}
