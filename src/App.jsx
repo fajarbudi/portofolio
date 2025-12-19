@@ -13,7 +13,7 @@ const PROFILE = {
   openToWork: true,
   role: "WEB & MOBILE DEVELOPER",
   name: "Fajar Budi Raharjo",
-  desc: "Saya membangun aplikasi web dan mobile end-to-end, dari UI sampai backend, dengan fokus pada performa, struktur yang rapi, dan pengalaman pengguna yang nyaman.",
+  desc: "Saya mengembangkan sistem dan aplikasi web & mobile end-to-end untuk kebutuhan bisnis: perancangan UI, implementasi frontend, backend service & API, serta optimalisasi performa dan keamanan aplikasi.",
   email: "fajarbudira@gmail.com",
   phone: "+62 89605877717",
   location: "Yogyakarta, ID",
@@ -362,14 +362,22 @@ export default function Portfolio() {
 
             <div className="mt-6 max-w-[720px] space-y-5 text-white/80 leading-relaxed">
               <p>
-                Saya berpengalaman membangun aplikasi web & mobile yang rapi,
-                scalable, dan mudah dirawat. Saya mengutamakan struktur kode,
-                performa, dan UX yang konsisten lintas platform.
+                Full-Stack Web Developer dengan fokus utama pada Laravel dan
+                Next.js untuk pengembangan aplikasi web end-to-end—mulai dari
+                perancangan antarmuka, implementasi frontend dan backend,
+                pengembangan REST API, hingga deployment. Prioritas utama
+                meliputi performa, struktur kode yang terjaga, arsitektur yang
+                skalabel, serta konsistensi pengalaman pengguna.
               </p>
               <p>
-                Saya terbiasa bekerja dengan kebutuhan pemerintahan maupun
-                bisnis: modul pelaporan, dashboard eksekutif, manajemen data,
-                hingga integrasi API untuk mobile.
+                Memiliki kemampuan pengembangan aplikasi mobile menggunakan
+                Flutter, terutama untuk kebutuhan integrasi API dan implementasi
+                fitur lintas platform.
+              </p>
+              <p>
+                Berpengalaman menangani kebutuhan pemerintahan maupun bisnis,
+                termasuk dashboard eksekutif, modul pelaporan, manajemen data,
+                serta integrasi sistem secara terukur.
               </p>
             </div>
 
@@ -378,11 +386,8 @@ export default function Portfolio() {
               <div className="flex gap-6">
                 <div className="w-1 rounded-full bg-yellow-400" />
                 <div className="text-2xl md:text-3xl font-extrabold leading-snug">
-                  Saya senang membangun produk yang{" "}
-                  <span className="text-white">cepat</span>,{" "}
-                  <span className="text-white">terukur</span>, dan{" "}
-                  <span className="text-white">mudah digunakan</span> — dari ide
-                  sampai rilis.
+                  Berkomitmen membangun produk yang cepat, terukur, dan mudah
+                  digunakan—dari perencanaan hingga rilis.
                 </div>
               </div>
             </div>
