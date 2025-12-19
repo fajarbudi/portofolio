@@ -141,6 +141,7 @@ export default function Portfolio() {
   const ids = useMemo(() => SECTIONS.map((s) => s.id), []);
 
   // Picsum hero subject (portrait-ish). Change seed if you want a better subject.
+  // const HERO_IMG = "/background.png";
   const HERO_IMG = "https://picsum.photos/seed/apex-portrait-77/1600/2000";
 
   // Active section observer (nav highlight)
