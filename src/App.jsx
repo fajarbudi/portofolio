@@ -52,7 +52,7 @@ const EXPERIENCE = [
   {
     role: "Full-Stack Developer",
     org: "PT Anauri",
-    period: "2023 — Now",
+    period: "2024 — Now",
     text: "Membangun dan mengembangkan sistem aplikasi dari awal sampai siap digunakan, mulai dari pengelolaan data, tampilan dashboard, hingga terhubung dengan aplikasi mobile.",
     bullets: [
       "Menyusun fitur-fitur utama sesuai kebutuhan pengguna dan memastikan alurnya mudah dipakai.",
@@ -63,7 +63,7 @@ const EXPERIENCE = [
   {
     role: "Mobile Developer",
     org: "PT Anauri",
-    period: "2023 — 2024",
+    period: "2024",
     text: "Mengembangkan aplikasi mobile untuk kebutuhan operasional, dengan fokus pada kenyamanan pengguna dan kestabilan aplikasi.",
     bullets: [
       "Membuat aplikasi yang bisa digunakan oleh beberapa jenis pengguna (misalnya admin & petugas).",
@@ -74,7 +74,7 @@ const EXPERIENCE = [
   {
     role: "Front-End",
     org: "Freelance",
-    period: "2022 — 2023",
+    period: "2023",
     text: "Membantu membuat tampilan website agar lebih menarik, rapi, dan mudah dipahami pengguna.",
     bullets: [
       "Membuat halaman website yang responsif (nyaman dibuka di HP maupun laptop).",
@@ -94,15 +94,30 @@ const SECTIONS = [
 ];
 
 const SKILLS_TOOLS = [
-  "API Design (REST)",
-  "Authentication & RBAC",
-  "Database Design",
-  "Responsive Web Design",
-  "Performance Optimization",
-  "Reusable Component System",
-  "State Management",
-  "Testing & Debugging",
+  "Pengembangan Aplikasi End-to-End (dari kebutuhan sampai rilis)",
+  "Integrasi Aplikasi Web & Mobile",
+  "Perancangan Alur & Pengalaman Pengguna (UX sederhana)",
+  "Pengelolaan Data & Struktur Database",
+  "Pembuatan API & Integrasi Layanan",
+  "Keamanan Dasar Aplikasi (login, hak akses pengguna)",
+  "Optimasi Performa & Kecepatan Aplikasi",
+  "Testing & Perbaikan Bug (quality dan stabilitas)",
 ];
+
+// const SKILLS_TOOLS = [
+//   "End-to-End App Development",
+//   "Authentication & User Access",
+//   "Web & Mobile Integration",
+//   "Responsive UI (Web & Mobile)",
+//   "Database & Data Management",
+//   "UI Component & Reusable Layout",
+//   "API Development & Integration",
+//   "Testing & Bug Fixing",
+//   "Performance & Reliability",
+//   "Deployment & Maintenance",
+//   "Documentation & Handover",
+//   "Team Collaboration",
+// ];
 
 const TOOL_APPS = [
   { name: "Laravel", abbr: "/laravel.png" },
@@ -320,12 +335,11 @@ export default function Portfolio() {
                 </div>
 
                 <div className="mt-8 grid gap-3 text-sm text-white/85 md:grid-cols-2 max-w-130">
-                  {/* <a href="mailto: fajarbudira@gmail.com" target="_blank">
+                  {/* <a href="mailto: fajarbudira@gmail.com">
                     <InfoRow icon="mail" text={PROFILE.email} />
                   </a> */}
                   <a
-                    href={`https://wa.me/6285640742885text=urlencodedtext`}
-                    target="_blank"
+                    href={`https://wa.me/6289605877717text=Halo, saya ingin bertanya terkait layanan/kerja sama. Bisa dibantu?`}
                   >
                     <InfoRow
                       icon="fa fa-whatsapp text-yellow-400/90"
@@ -510,32 +524,6 @@ export default function Portfolio() {
             {/* <SectionLanguages /> */}
             <SectionEducationCerts />
           </section>
-
-          {/* SKILLS */}
-          {/* <section
-            id="skills"
-            ref={(el) => (refs.current.skills = el)}
-            className="mt-16 scroll-mt-28"
-          >
-            <h2 className="text-5xl font-extrabold text-yellow-400 tracking-tight">
-              Skills
-            </h2>
-
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
-              {SKILLS.map((s) => (
-                <div
-                  key={s.k}
-                  className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-5"
-                >
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 border border-white/10 text-sm font-bold">
-                    {s.k.slice(0, 2)}
-                  </div>
-                  <div className="mt-4 font-semibold">{s.k}</div>
-                  <div className="mt-1 text-xs text-white/70">{s.d}</div>
-                </div>
-              ))}
-            </div>
-          </section> */}
 
           {/* LINKS / CONTACT */}
           <section
