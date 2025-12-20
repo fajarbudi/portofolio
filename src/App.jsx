@@ -23,6 +23,12 @@ const TECH_CHIPS = ["Laravel", "Flutter", "React.js", "Next.js"];
 
 const PROJECTS = [
   {
+    title: "SMEP — Monitoring & Evaluasi Pembangunan Daerah",
+    desc: "Sistem pelaporan berkala (mingguan/bulanan) untuk Perangkat Daerah yang mengelola paket/kegiatan beserta realisasinya, eviden foto lapangan, serta pencatatan kendala. Data terhimpun dalam Executive Dashboard yang dipantau Bagian Administrasi Pembangunan dan Pimpinan Daerah secara terpusat.",
+    image: "/project/smep.png",
+    href: "#projects",
+  },
+  {
     title: "Prakiraan Waktu Banjir (Flood Routing)",
     desc: "Peta interaktif untuk memilih titik hulu–hilir, menampilkan profil lokasi (koordinat, elevasi, desa/kecamatan), serta menghitung estimasi jarak dan waktu tempuh gelombang banjir menuju hilir.",
     image: "/project/floodRouting.png",
@@ -34,6 +40,12 @@ const PROJECTS = [
     image: "/project/air.png",
     href: "#projects",
   },
+  // {
+  //   title: "Mobile Public Service",
+  //   desc: "Aplikasi Flutter untuk layanan, notifikasi, tracking proses.",
+  //   image: "/project/sih3Mobile.png",
+  //   href: "#projects",
+  // },
   // {
   //   title: "Company Profile + CMS",
   //   desc: "Website modern, SEO-ready, performa tinggi, dan panel admin konten.",
@@ -93,39 +105,43 @@ const SECTIONS = [
   { id: "links", label: "Links", icon: "fa fa-share-alt" },
 ];
 
-const SKILLS_TOOLS = [
-  "Pengembangan Aplikasi End-to-End (dari kebutuhan sampai rilis)",
-  "Integrasi Aplikasi Web & Mobile",
-  "Perancangan Alur & Pengalaman Pengguna (UX sederhana)",
-  "Pengelolaan Data & Struktur Database",
-  "Pembuatan API & Integrasi Layanan",
-  "Keamanan Dasar Aplikasi (login, hak akses pengguna)",
-  "Optimasi Performa & Kecepatan Aplikasi",
-  "Testing & Perbaikan Bug (quality dan stabilitas)",
-];
-
 // const SKILLS_TOOLS = [
-//   "End-to-End App Development",
-//   "Authentication & User Access",
-//   "Web & Mobile Integration",
-//   "Responsive UI (Web & Mobile)",
-//   "Database & Data Management",
-//   "UI Component & Reusable Layout",
-//   "API Development & Integration",
-//   "Testing & Bug Fixing",
-//   "Performance & Reliability",
-//   "Deployment & Maintenance",
-//   "Documentation & Handover",
-//   "Team Collaboration",
+//   "Pengembangan Aplikasi End-to-End (dari kebutuhan sampai rilis)",
+//   "Integrasi Aplikasi Web & Mobile",
+//   "Perancangan Alur & Pengalaman Pengguna (UX sederhana)",
+//   "Pengelolaan Data & Struktur Database",
+//   "Pembuatan API & Integrasi Layanan",
+//   "Keamanan Dasar Aplikasi (login, hak akses pengguna)",
+//   "Optimasi Performa & Kecepatan Aplikasi",
+//   "Testing & Perbaikan Bug (quality dan stabilitas)",
 // ];
+
+const SKILLS_TOOLS = [
+  "End-to-End App Development",
+  "Authentication & User Access",
+  "Web & Mobile Integration",
+  "Responsive UI (Web & Mobile)",
+  "Database & Data Management",
+  "UI Component & Reusable Layout",
+  "API Development & Integration",
+  "Testing & Bug Fixing",
+  "Performance & Reliability",
+  "Deployment & Maintenance",
+  "Documentation & Handover",
+  "Team Collaboration",
+];
 
 const TOOL_APPS = [
   { name: "Laravel", abbr: "/laravel.png" },
   { name: "Flutter", abbr: "/flutter.png" },
   { name: "React", abbr: "/react.png" },
   { name: "Next.js", abbr: "/nextJs.png" },
+  { name: "Vite", abbr: "/vite.png" },
   { name: "Git", abbr: "/git.png" },
   { name: "Docker", abbr: "/docker.png" },
+  { name: "Node.js", abbr: "/nodeJs.png" },
+  { name: "Bootstrap", abbr: "/bootstrap.png" },
+  { name: "Tailwind", abbr: "/tailwind.png" },
   { name: "Javascript", abbr: "/js.png" },
   { name: "PHP", abbr: "/php.png" },
   { name: "Dart", abbr: "/dart.png" },
@@ -657,7 +673,9 @@ function SectionToolGrid() {
         {TOOL_APPS.map((t) => (
           <div key={t.name} className="flex flex-col items-center gap-2">
             <div
-              className={`h-12 w-12 ${t.name == "Next.js" ? "bg-white" : ""}`}
+              className={`h-11 w-12 ${
+                t.name == "Next.js" || t.name == "Node.js" ? "bg-white" : ""
+              }`}
             >
               <img src={t.abbr} alt="a" className="w-full h-full" />
             </div>
@@ -736,11 +754,11 @@ function ProjectCardWide({ title, desc, image, href }) {
       target="_blank"
       className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 transition"
     >
-      <div className="relative h-52 overflow-hidden">
+      <div className="relative h-64 overflow-hidden">
         <img
           src={image}
           alt={title}
-          className="h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+          className="h-full w-full object-fill transition duration-300 group-hover:scale-[1.1]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/10 to-transparent" />
         <div className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-black/40 border border-white/10">
