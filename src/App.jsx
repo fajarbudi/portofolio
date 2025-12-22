@@ -354,7 +354,9 @@ export default function Portfolio() {
                   {/* <a href="mailto: fajarbudira@gmail.com">
                     <InfoRow icon="mail" text={PROFILE.email} />
                   </a> */}
-                  <a href={`https://wa.me/6289605877717?text=urlencodedtext`}>
+                  <a
+                    href={`https://wa.me/6289605877717?text=Halo, saya ingin berkonsultasi mengenai proyek Web/Mobile.`}
+                  >
                     <InfoRow
                       icon="fa fa-whatsapp text-yellow-400/90"
                       text={PROFILE.phone}
