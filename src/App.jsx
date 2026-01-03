@@ -306,12 +306,12 @@ export default function Portfolio() {
             <span className="font-medium">Open to work</span>
           </div>
 
-          <a
+          {/* <a
             href={PROFILE.cvUrl}
             className="pointer-events-auto inline-flex items-center justify-center rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-neutral-950 shadow-[0_14px_55px_-25px_rgba(250,204,21,0.95)] hover:bg-yellow-300 transition"
           >
             Download CV
-          </a>
+          </a> */}
         </div>
       </header>
 
