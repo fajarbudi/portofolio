@@ -15,7 +15,7 @@ const PROFILE = {
       href: "https://www.linkedin.com/in/fajar-budi-770227266/",
       icon: "fa fa-linkedin",
     },
-    { label: "GitHub", href: "https://github.com", icon: "fa fa-github" },
+    { label: "GitHub", href: "https://github.com/fajarbudi", icon: "fa fa-github" },
   ],
 };
 
@@ -25,19 +25,19 @@ const PROJECTS = [
   {
     title: "SMEP — Monitoring & Evaluasi Pembangunan Daerah",
     desc: "Sistem pelaporan berkala (mingguan/bulanan) untuk Perangkat Daerah yang mengelola paket/kegiatan beserta realisasinya, eviden foto lapangan, serta pencatatan kendala. Data terhimpun dalam Executive Dashboard yang dipantau Bagian Administrasi Pembangunan dan Pimpinan Daerah secara terpusat.",
-    image: "/project/smep.png",
+    image: "/project/smep.webp",
     href: "#projects",
   },
   {
     title: "Prakiraan Waktu Banjir (Flood Routing)",
     desc: "Peta interaktif untuk memilih titik hulu–hilir, menampilkan profil lokasi (koordinat, elevasi, desa/kecamatan), serta menghitung estimasi jarak dan waktu tempuh gelombang banjir menuju hilir.",
-    image: "/project/floodRouting.png",
+    image: "/project/floodRouting.webp",
     href: "https://sih3.bbwsserayuopak.id/info/floodrouting",
   },
   {
     title: "Mobile Public Service",
     desc: "Aplikasi Flutter untuk layanan, notifikasi, tracking proses.",
-    image: "/project/air.png",
+    image: "/project/air.webp",
     href: "#projects",
   },
   // {
@@ -141,7 +141,7 @@ const TOOL_APPS = [
   { name: "Docker", abbr: "/docker.png" },
   { name: "Node.js", abbr: "/nodeJs.png" },
   { name: "Bootstrap", abbr: "/bootstrap.png" },
-  { name: "Tailwind", abbr: "/tailwind.png" },
+  { name: "Tailwind", abbr: "/tailwind.webp" },
   { name: "Javascript", abbr: "/js.png" },
   { name: "PHP", abbr: "/php.png" },
   { name: "Dart", abbr: "/dart.png" },
@@ -179,7 +179,7 @@ export default function Portfolio() {
   const ids = useMemo(() => SECTIONS.map((s) => s.id), []);
 
   // Picsum hero subject (portrait-ish). Change seed if you want a better subject.
-  const HERO_IMG = "/background.png";
+  const HERO_IMG = "/background.webp";
   // const HERO_IMG = "https://picsum.photos/seed/apex-portrait-77/1600/2000";
 
   // Active section observer (nav highlight)
@@ -257,6 +257,7 @@ export default function Portfolio() {
         <img
           src={HERO_IMG}
           alt=""
+          fetchPriority="high"
           className="absolute inset-0 h-full w-full object-cover"
           style={{
             opacity: `calc(1 - (var(--p, 0) * 0.55))`,
@@ -363,7 +364,8 @@ export default function Portfolio() {
                     />
                   </a>
                   <a
-                    href="https://www.linkedin.com/in/fajar-budi-770227266/"
+                    href={PROFILE.social[0].href}
+                    rel="me noreferrer"
                     target="_blank"
                   >
                     <InfoRow
@@ -374,6 +376,7 @@ export default function Portfolio() {
                   <a
                     href="https://maps.app.goo.gl/hGYXTUJGrHM6PQpF9"
                     target="_blank"
+                    rel="noopener noreferrer"
                   >
                     <InfoRow
                       icon="fa fa-compass text-yellow-400/90"
@@ -471,9 +474,9 @@ export default function Portfolio() {
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
-                      <div className="text-white font-semibold text-lg">
+                      <h3 className="text-white font-semibold text-lg">
                         {e.role}
-                      </div>
+                      </h3>
                       <div className="text-sm text-white/65">{e.org}</div>
                     </div>
                     <div className="text-sm text-white/55">{e.period}</div>
@@ -485,7 +488,7 @@ export default function Portfolio() {
                   <ul className="mt-4 space-y-2 text-sm text-white/70">
                     {e.bullets &&
                       e.bullets.map((b) => (
-                        <li className="flex gap-3">
+                        <li key={b} className="flex gap-3">
                           <span className="mt-2 h-1.5 w-1.5 rounded-full bg-yellow-400" />
                           {b}
                         </li>
@@ -557,10 +560,10 @@ export default function Portfolio() {
                   key={s.label}
                   href={s.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="me noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-4 py-2 text-sm text-white/85 backdrop-blur hover:bg-white/15 transition"
                 >
-                  <i class={s.icon} aria-hidden="true"></i>
+                  <i className={s.icon} aria-hidden="true"></i>
                   {s.label}
                 </a>
               ))}
@@ -612,7 +615,7 @@ export default function Portfolio() {
                       : "text-white/85 hover:bg-white/10",
                   ].join(" ")}
                 >
-                  <i class={s.icon} aria-hidden="true"></i>
+                  <i className={s.icon} aria-hidden="true"></i>
                   <span className="hidden sm:inline">{s.label}</span>
                 </button>
               );
@@ -677,7 +680,7 @@ function SectionToolGrid() {
                 t.name == "Next.js" || t.name == "Node.js" ? "bg-white" : ""
               }`}
             >
-              <img src={t.abbr} alt="a" className="w-full h-full" />
+              <img src={t.abbr} alt={`Logo ${t.name}`} width="48" height="44" loading="lazy" decoding="async" className="w-full h-full" />
             </div>
             <div className="text-xs text-white/70 text-center">{t.name}</div>
           </div>
@@ -736,6 +739,7 @@ function SectionEducationCerts() {
                 href={e.lampiran}
                 className="text-sm text-yellow-400/90"
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Lampiran
               </a>
@@ -752,27 +756,30 @@ function ProjectCardWide({ title, desc, image, href }) {
     <a
       href={href}
       target="_blank"
+      rel="noopener noreferrer"
       className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 transition"
     >
       <div className="relative h-64 overflow-hidden">
         <img
           src={image}
-          alt={title}
+          alt={`Screenshot proyek ${title}`}
+          loading="lazy"
+          decoding="async"
           className="h-full w-full object-fill transition duration-300 group-hover:scale-[1.1]"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/80 via-neutral-950/10 to-transparent" />
         <div className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-xl bg-black/40 border border-white/10">
-          <i class="fa fa-hand-o-up" aria-hidden="true"></i>
+          <i className="fa fa-hand-o-up" aria-hidden="true"></i>
         </div>
       </div>
 
       <div className="p-6">
-        <div className="text-lg font-semibold">{title}</div>
+        <h3 className="text-lg font-semibold">{title}</h3>
         <div className="mt-2 text-sm text-white/70 leading-relaxed">{desc}</div>
 
         <div className="mt-4 inline-flex items-center gap-2 text-sm text-yellow-400/90">
           View case study
-          <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <i className="fa fa-long-arrow-right" aria-hidden="true"></i>
         </div>
       </div>
     </a>
@@ -835,7 +842,7 @@ function ContactForm({ emailTo }) {
         type="submit"
         className="inline-flex w-fit items-center justify-center gap-2 rounded-full bg-yellow-400 px-6 py-3 text-sm font-semibold text-neutral-950 hover:bg-yellow-300 transition"
       >
-        <i class="fa fa-paper-plane" aria-hidden="true"></i>
+        <i className="fa fa-paper-plane" aria-hidden="true"></i>
         Send Message
       </button>
     </form>

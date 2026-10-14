@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://portofolio-fajar-budi.vercel.app/sitemap.xml
