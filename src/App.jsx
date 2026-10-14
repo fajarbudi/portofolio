@@ -180,6 +180,7 @@ export default function Portfolio() {
 
   // Picsum hero subject (portrait-ish). Change seed if you want a better subject.
   const HERO_IMG = "/background.webp";
+  const HERO_BLUR_IMG = "/background-blur.webp";
   // const HERO_IMG = "https://picsum.photos/seed/apex-portrait-77/1600/2000";
 
   // Active section observer (nav highlight)
@@ -202,36 +203,37 @@ export default function Portfolio() {
     return () => obs.forEach((o) => o.disconnect());
   }, [ids]);
 
-  // Scroll-driven blur/dim (Framer-like: clear on home, blur when scrolling down)
-  useEffect(() => {
-    const root = document.documentElement;
-    root.style.setProperty("--p", "0");
-    root.style.setProperty("--blur", "0px");
-    root.style.setProperty("--dim", "0.10");
-    root.style.setProperty("--fade", "0");
-    root.style.setProperty("--scale", "1");
+  // Efek latar saat scroll: hanya mengubah opacity & transform (ringan, diproses GPU).
+  // Gambar blur sudah disiapkan statis (background-blur.webp), jadi tidak ada filter blur per frame.
+  const bgClear = useRef(null);
+  const bgBlur = useRef(null);
+  const bgDim = useRef(null);
 
+  useEffect(() => {
     let raf = 0;
+    let last = -1;
 
     const update = () => {
+      raf = 0;
       const y = window.scrollY || 0;
 
-      // blur kicks shortly after leaving hero area
+      // efek mulai sesaat setelah meninggalkan area hero
       const start = 60;
       const range = 520;
-      const t = clamp01((y - start) / range);
-      const e = easeOutCubic(t);
+      const e = easeOutCubic(clamp01((y - start) / range));
+      if (Math.abs(e - last) < 0.001) return;
+      last = e;
 
-      root.style.setProperty("--p", String(e));
-      root.style.setProperty("--blur", `${e * 26}px`);
-      root.style.setProperty("--dim", `${0.1 + e * 0.28}`); // 0.10 -> 0.38
-      root.style.setProperty("--fade", `${e}`);
-      root.style.setProperty("--scale", `${1 + e * 0.03}`);
+      if (bgClear.current) bgClear.current.style.opacity = String(1 - e * 0.55);
+      if (bgBlur.current) {
+        bgBlur.current.style.opacity = String(e);
+        bgBlur.current.style.transform = `scale(${1.05 + e * 0.03})`;
+      }
+      if (bgDim.current) bgDim.current.style.opacity = String(0.1 + e * 0.28); // 0.10 -> 0.38
     };
 
     const onScroll = () => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(update);
+      if (!raf) raf = requestAnimationFrame(update);
     };
 
     update();
@@ -257,27 +259,20 @@ export default function Portfolio() {
         <img
           src={HERO_IMG}
           alt=""
+          ref={bgClear}
           fetchPriority="high"
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{
-            opacity: `calc(1 - (var(--p, 0) * 0.55))`,
-            transform: "scale(1.02)",
-            transition: "opacity 180ms ease",
-          }}
+          className="absolute inset-0 h-full w-full object-cover will-change-[opacity]"
+          style={{ opacity: 1, transform: "scale(1.02)" }}
         />
 
         {/* blurred bg */}
         <img
-          src={HERO_IMG}
+          ref={bgBlur}
+          src={HERO_BLUR_IMG}
           alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{
-            opacity: "var(--fade, 0)",
-            filter: "blur(var(--blur, 0px)) saturate(0.95)",
-            transform: "scale(var(--scale, 1))",
-            transition:
-              "opacity 180ms ease, filter 180ms ease, transform 180ms ease",
-          }}
+          decoding="async"
+          className="absolute inset-0 h-full w-full object-cover will-change-[opacity,transform]"
+          style={{ opacity: 0, transform: "scale(1.05)" }}
         />
 
         {/* orange glow behind subject (center-right) */}
@@ -285,8 +280,9 @@ export default function Portfolio() {
 
         {/* dim on scroll */}
         <div
-          className="absolute inset-0 bg-black"
-          style={{ opacity: "var(--dim, 0.10)" }}
+          ref={bgDim}
+          className="absolute inset-0 bg-black will-change-[opacity]"
+          style={{ opacity: 0.1 }}
         />
 
         {/* left haze for readability */}
@@ -344,7 +340,7 @@ export default function Portfolio() {
                   {TECH_CHIPS.map((t) => (
                     <span
                       key={t}
-                      className="rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs text-white/80 backdrop-blur"
+                      className="rounded-full bg-white/10 border border-white/10 px-3 py-1 text-xs text-white/80"
                     >
                       {t}
                     </span>
@@ -445,7 +441,7 @@ export default function Portfolio() {
             </div>
 
             {/* Big quote box like template */}
-            <div className="mt-8 max-w-190 rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-7">
+            <div className="mt-8 max-w-190 rounded-2xl bg-white/5 border border-white/10 p-7">
               <div className="flex gap-6">
                 <div className="w-1 rounded-full bg-yellow-400" />
                 <div className="text-2xl md:text-3xl font-extrabold leading-snug">
@@ -470,7 +466,7 @@ export default function Portfolio() {
               {EXPERIENCE.map((e) => (
                 <div
                   key={e.role}
-                  className="rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-6"
+                  className="rounded-2xl bg-white/5 border border-white/10 p-6"
                 >
                   <div className="flex items-start justify-between gap-6">
                     <div>
@@ -561,7 +557,7 @@ export default function Portfolio() {
                   href={s.href}
                   target="_blank"
                   rel="me noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-4 py-2 text-sm text-white/85 backdrop-blur hover:bg-white/15 transition"
+                  className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/10 px-4 py-2 text-sm text-white/85 hover:bg-white/15 transition"
                 >
                   <i className={s.icon} aria-hidden="true"></i>
                   {s.label}
@@ -569,7 +565,7 @@ export default function Portfolio() {
               ))}
             </div>
 
-            <div className="mt-10 max-w-190 rounded-2xl bg-white/5 border border-white/10 backdrop-blur p-6">
+            <div className="mt-10 max-w-190 rounded-2xl bg-white/5 border border-white/10 p-6">
               <div className="text-white font-semibold">Contact</div>
               <ContactForm emailTo={PROFILE.email} />
             </div>
@@ -600,7 +596,7 @@ export default function Portfolio() {
 
       {/* BOTTOM PILL NAV (Framer-like) */}
       <nav className="fixed bottom-6 left-1/2 z-30 w-[min(920px,92vw)] -translate-x-1/2">
-        <div className="rounded-full bg-white/12 border border-white/10 backdrop-blur-xl shadow-[0_30px_100px_-60px_rgba(0,0,0,0.95)] px-2 py-2">
+        <div className="rounded-full bg-white/12 border border-white/10 backdrop-blur-md shadow-[0_30px_100px_-60px_rgba(0,0,0,0.95)] px-2 py-2">
           <div className="flex items-center gap-2">
             {SECTIONS.map((s) => {
               const isActive = active === s.id;
@@ -639,10 +635,10 @@ function easeOutCubic(t) {
 function InfoRow({ icon, text }) {
   return (
     <div className="flex items-center gap-3">
-      {/* <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 border border-white/10 backdrop-blur">
+      {/* <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 border border-white/10">
         <Icon name={icon} className="h-5 w-5 text-yellow-400" />
       </span> */}
-      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 border border-white/10 backdrop-blur">
+      <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-white/10 border border-white/10">
         <i className={icon} style={{ fontSize: 20 }}></i>
       </span>
       <span className="truncate">{text}</span>
@@ -757,7 +753,7 @@ function ProjectCardWide({ title, desc, image, href }) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 backdrop-blur hover:bg-white/10 transition"
+      className="group overflow-hidden rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition"
     >
       <div className="relative h-64 overflow-hidden">
         <img
