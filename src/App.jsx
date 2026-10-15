@@ -9,15 +9,24 @@ const PROFILE = {
   phone: "089605877717",
   location: "Yogyakarta, Indonesia",
   cvUrl: "#",
+  // Tambahkan akun baru di sini; otomatis tampil di hero & bagian Links.
+  // `handle` = teks di hero (jika kosong, memakai `label`).
   social: [
     {
       label: "LinkedIn",
+      handle: "Fajar budi",
       href: "https://www.linkedin.com/in/fajar-budi-770227266/",
       icon: "fa fa-linkedin",
     },
-    { label: "GitHub", href: "https://github.com/fajarbudi", icon: "fa fa-github" },
+    {
+      label: "GitHub",
+      handle: "fajarbudi",
+      href: "https://github.com/fajarbudi",
+      icon: "fa fa-github",
+    },
     {
       label: "Instagram",
+      handle: "@fajar_budira",
       href: "https://www.instagram.com/fajar_budira",
       icon: "fa fa-instagram",
     },
@@ -364,16 +373,20 @@ export default function Portfolio() {
                       text={PROFILE.phone}
                     />
                   </a>
-                  <a
-                    href={PROFILE.social[0].href}
-                    rel="me noreferrer"
-                    target="_blank"
-                  >
-                    <InfoRow
-                      icon="fa fa-linkedin text-yellow-400/90"
-                      text="Fajar budi"
-                    />
-                  </a>
+                  {PROFILE.social.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      rel="me noreferrer"
+                      target="_blank"
+                      aria-label={s.label}
+                    >
+                      <InfoRow
+                        icon={`${s.icon} text-yellow-400/90`}
+                        text={s.handle || s.label}
+                      />
+                    </a>
+                  ))}
                   <a
                     href="https://maps.app.goo.gl/hGYXTUJGrHM6PQpF9"
                     target="_blank"
