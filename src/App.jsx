@@ -16,6 +16,11 @@ const PROFILE = {
       icon: "fa fa-linkedin",
     },
     { label: "GitHub", href: "https://github.com/fajarbudi", icon: "fa fa-github" },
+    {
+      label: "Instagram",
+      href: "https://www.instagram.com/fajar_budira",
+      icon: "fa fa-instagram",
+    },
   ],
 };
 
