@@ -4,10 +4,10 @@ const PROFILE = {
   openToWork: true,
   role: "WEB & MOBILE DEVELOPER",
   name: "Fajar Budi Raharjo",
-  desc: "Saya mengembangkan sistem dan aplikasi web & mobile end-to-end untuk kebutuhan bisnis: perancangan UI, implementasi frontend, backend service & API, serta optimalisasi performa dan keamanan aplikasi.",
+  desc: "Developer berdomisili di Yogyakarta, Indonesia. Saya mengembangkan sistem dan aplikasi web & mobile end-to-end untuk kebutuhan bisnis: perancangan UI, implementasi frontend, backend service & API, serta optimalisasi performa dan keamanan aplikasi.",
   email: "fajarbudira@gmail.com",
   phone: "089605877717",
-  location: "Yogyakarta, ID",
+  location: "Yogyakarta, Indonesia",
   cvUrl: "#",
   social: [
     {
@@ -571,7 +571,7 @@ export default function Portfolio() {
             </div>
 
             <div className="mt-10 text-sm text-white/55">
-              © {new Date().getFullYear()} • Portfolio
+              © {new Date().getFullYear()} • {PROFILE.name} • Web & Mobile Developer di Yogyakarta, Indonesia
             </div>
           </section>
         </div>

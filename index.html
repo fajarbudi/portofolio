@@ -16,6 +16,12 @@
     <link rel="preload" as="image" href="/background.webp" type="image/webp" fetchpriority="high" />
     <meta name="theme-color" content="#0a0a0a" />
 
+    <!-- Lokasi (Geo) — domisili Yogyakarta -->
+    <meta name="geo.region" content="ID-YO" />
+    <meta name="geo.placename" content="Yogyakarta" />
+    <meta name="geo.position" content="-7.797068;110.370529" />
+    <meta name="ICBM" content="-7.797068, 110.370529" />
+
     <!-- Identitas profil (rel="me" membantu mesin pencari menghubungkan akun resmi) -->
     <link rel="me" href="https://www.linkedin.com/in/fajar-budi-770227266/" />
     <link rel="me" href="https://github.com/fajarbudi" />
@@ -72,7 +78,33 @@
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Yogyakarta",
+            "addressRegion": "Daerah Istimewa Yogyakarta",
             "addressCountry": "ID"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Yogyakarta, Indonesia",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Yogyakarta",
+              "addressRegion": "Daerah Istimewa Yogyakarta",
+              "addressCountry": "ID"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": -7.797068,
+              "longitude": 110.370529
+            }
+          },
+          "workLocation": {
+            "@type": "Place",
+            "name": "Yogyakarta, Indonesia",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Yogyakarta",
+              "addressRegion": "Daerah Istimewa Yogyakarta",
+              "addressCountry": "ID"
+            }
           },
           "knowsAbout": ["Laravel", "Flutter", "React", "Next.js", "PHP", "Dart", "JavaScript", "Node.js", "Docker"],
           "sameAs": [
@@ -89,7 +121,7 @@
       <!-- Konten statis untuk crawler/AI tanpa JavaScript; diganti oleh React saat aplikasi dimuat -->
       <main>
         <h1>Fajar Budi Raharjo</h1>
-        <p>Web &amp; Mobile Developer (Full-Stack) di PT Anauri, Yogyakarta, Indonesia.</p>
+        <p>Web &amp; Mobile Developer (Full-Stack) berdomisili di Yogyakarta, Indonesia — bekerja di PT Anauri, Yogyakarta.</p>
         <p>Mengembangkan sistem dan aplikasi web &amp; mobile end-to-end dengan Laravel, Flutter, React, dan Next.js.</p>
         <ul>
           <li>LinkedIn resmi: <a href="https://www.linkedin.com/in/fajar-budi-770227266/" rel="me">linkedin.com/in/fajar-budi-770227266</a></li>
